@@ -35,7 +35,7 @@ UndoHandler.prototype = {
 	// Undoes the latest change.
 	undo: function () {
 
-		if (this.history.length && this.curIndex >= 0) {
+		if (this.history.length && this.curIndex > 0) {
 			this.history[this.curIndex - 1].undo();
 			this.curIndex--;
 		}
