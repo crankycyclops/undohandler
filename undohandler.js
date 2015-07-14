@@ -22,6 +22,10 @@ UndoHandler.prototype = {
 	// Adds an item to the undo history.
 	insert: function (object) {
 
+		// If we insert a new change somewhere in the middle, all subsequent
+		// changes are invalid and should thus be removed.
+		this.history = this.history.slice(0, this.curIndex);
+
 		this.history.push(object);
 		this.curIndex++;
 	},
